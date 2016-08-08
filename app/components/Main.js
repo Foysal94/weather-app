@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Navbar, NavbarHeader, NavbarBrand, NavbarCollapse} from 'react-bootstrap';
 import {default as Search} from './LocationSearchBox'
 
+
 export default class Main extends Component{
 
     constructor(props) {
@@ -11,9 +12,9 @@ export default class Main extends Component{
 
     render() {
         return(
-            <Navbar fixedTop>
+            <Navbar fixedTop >
                 <NavbarBrand pullLeft>
-                    <a href="#">React-Bootstrap</a>
+                    <a href="#">Weather-app</a>
                 </NavbarBrand>
                 <Navbar.Collapse>
                     <Navbar.Form pullRight>

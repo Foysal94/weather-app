@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 exports.devServer = function(options) {
    return {
@@ -90,8 +91,8 @@ exports.extractCSS = function(paths) {
          loaders: [
             // Extract CSS during build
             {
-               test: /\.scss$/,
-               loader: ExtractTextPlugin.extract('style', 'css'),
+               test: /(scss|css)$/,
+               loader: ExtractTextPlugin.extract('style', "css?modules", "sass" ),
                include: paths
             }
          ]
@@ -101,18 +102,22 @@ exports.extractCSS = function(paths) {
          new ExtractTextPlugin('[name].[chunkhash].css')
       ]
    };
-}
+};
 
 exports.setupCSS = function(paths) {
    return {
       module: {
          loaders: [
             {
-               test: /\.scss$/,
-               loaders: ['style', 'css'],
+               test: /(scss|css)$/, ///\.scss$/
+               loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules','sass?sourceMap'),
                include: paths
             }
-         ]
-      }
+         ],
+      },
+      plugins: [
+         // Output extracted CSS to a file
+         new ExtractTextPlugin('bundle.css')
+      ]
    }
 };

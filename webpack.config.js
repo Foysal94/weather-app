@@ -44,7 +44,7 @@ const common = {
 var config;
 
 switch(process.env.npm_lifecycle_event) {
-    case 'build':
+    case 'build': //build
         config = merge(
             common,
             {
@@ -67,7 +67,7 @@ switch(process.env.npm_lifecycle_event) {
             parts.extractCSS(PATHS.app)
         );
         break;
-    default:
+    default: // dev server
         config = merge(
             common,
             parts.setupCSS(PATHS.app),
