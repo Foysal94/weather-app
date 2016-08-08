@@ -8,7 +8,7 @@ export default function LocationSearchBox(props) {
     return (
         <FormGroup>
             <FormControl type="text" placeholder="Search"  />
-            <Button bsStyle="success" type="submit" style={styles} >Submit</Button>
+            <Button bsStyle="success" type="submit" style={styles} >Get Weather</Button>
         </FormGroup>
     )
 }

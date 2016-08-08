@@ -1,28 +1,18 @@
 import React, {Component} from 'react';
-import {Navbar, NavbarHeader, NavbarBrand, NavbarCollapse} from 'react-bootstrap';
-import {default as Search} from './LocationSearchBox'
+import MainNavbar from './MainNavbar'
 
 
 export default class Main extends Component{
 
-    constructor(props) {
-        super(props);
-        this.props = props;
-    }
+   constructor(props) {
+      super(props);
+      this.props = props;
+   }
 
-    render() {
-        return(
-            <Navbar fixedTop >
-                <NavbarBrand pullLeft>
-                    <a href="#">Weather-app</a>
-                </NavbarBrand>
-                <Navbar.Collapse>
-                    <Navbar.Form pullRight>
-                        <Search/>
-                    </Navbar.Form>
-                </Navbar.Collapse>
-            </Navbar>
-        )
-    }
+   render() {
+      return(
+          <MainNavbar/>
+      )
+   }
 
 }
