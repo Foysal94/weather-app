@@ -4,7 +4,7 @@ import {Form, Button, FormGroup, FormControl} from 'react-bootstrap'
 function LocationSearchBox(props) {
 		return (
 			
-			<Form onSubmit={props.onSubmitLocation} action="/" method="GET">
+			<Form onSubmit={props.onSubmitLocation} action="/" >
 				<FormGroup>
 					<FormControl 
 						type="text" 
