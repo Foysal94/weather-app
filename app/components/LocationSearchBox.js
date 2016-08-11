@@ -1,14 +1,28 @@
-import React, {PropTypes} from 'react'
-import {Button,FormGroup, FormControl} from 'react-bootstrap'
-var styles = {
-  marginLeft: 20
+import React, {PropTypes, Component} from 'react'
+import {Form, Button, FormGroup, FormControl} from 'react-bootstrap'
+
+function LocationSearchBox(props) {
+		return (
+			
+			<Form onSubmit={props.onSubmitLocation} action="/" method="GET">
+				<FormGroup>
+					<FormControl 
+						type="text" 
+						placeholder="Search" 
+						value={props.location}
+						onChange={props.onUpdateLocation}
+						required='true' />
+					<Button bsStyle="success" type="submit" >Get Weather</Button>
+				</FormGroup>
+			</Form>
+		 )
+}
+
+LocationSearchBox.PropTypes ={
+	className: PropTypes.string,
+	onUpdateLocation: PropTypes.func.isRequired,
+	onSubmitLocation: PropTypes.func.isRequired,
+	location: PropTypes.string.isRequired
 };
 
-export default function LocationSearchBox(props) {
-    return (
-        <FormGroup>
-            <FormControl type="text" placeholder="Search"  />
-            <Button bsStyle="success" type="submit" style={styles} >Get Weather</Button>
-        </FormGroup>
-    )
-}
+export default LocationSearchBox

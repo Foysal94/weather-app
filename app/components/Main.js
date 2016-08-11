@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import MainNavbar from './MainNavbar'
+import MainNavbar from './Navbar'
 
 
-export default class Main extends Component{
+class Main extends Component{
 
    constructor(props) {
       super(props);
@@ -11,8 +11,13 @@ export default class Main extends Component{
 
    render() {
       return(
-          <MainNavbar/>
+          <div>
+             <MainNavbar/>
+             {this.props.children}
+          </div>
       )
    }
 
 }
+
+export default Main
