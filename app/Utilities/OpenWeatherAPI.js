@@ -5,7 +5,7 @@ const fiveDayAPICall = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=
 const currentWeather = ' http://api.openweathermap.org/data/2.5/weather?q=CITY-NAME&type=accurate&APPID=YOUR-API-KEY '
 
 export function getFiveDayForecast(location){
-   return axios.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + location + '&type=accurate&APPID=' + apiKey)
+   return axios.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + location + '&type=accurate&APPID=' + apiKey + '&cnt=5')
 }
 
 export function getCurrentWeather(location) {

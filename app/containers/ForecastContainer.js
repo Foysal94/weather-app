@@ -24,7 +24,7 @@ class ForecastContainer extends Component {
       let location = this.state.location;
       getFiveDayForecast(location)
           .then (function (weatherData) {
-             console.log("Resposne data: " + weatherData.data)
+             //console.log("Resposne data: " + weatherData.data)
              console.log("Resposne status: " + weatherData.status)
              this.setState({
                 data : weatherData.data
@@ -32,13 +32,10 @@ class ForecastContainer extends Component {
 
           }.bind(this))
 
-      console.log("Data from State:" + this.state.data)
-
    }
 
    render() {
       return(
-
           <Forecast Location = {this.state.location}
                      data = {this.state.data} />
       )
