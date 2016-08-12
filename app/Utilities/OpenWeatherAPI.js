@@ -12,7 +12,7 @@ export function getCurrentWeather(location) {
    return axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + location + '&type=accurate&APPID=' + apiKey)
 }
 
-const helpers = {
+const Helpers = {
    getFiveDayForecast: function(location) {
       return axios.get(
           'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + location + '&type=accurate&APPID=' + apiKey + '&cnt=5'
@@ -31,3 +31,5 @@ const helpers = {
    }
 
 }
+
+export default Helpers
