@@ -4,7 +4,7 @@ import {Form, Button, FormGroup, FormControl} from 'react-bootstrap'
 function LocationSearchBox(props) {
 		return (
 			
-			<Form onSubmit={props.onSubmitLocation} action="/" >
+			<form onSubmit={props.onSubmitLocation} >
 				<FormGroup>
 					<FormControl 
 						type="text" 
@@ -14,11 +14,11 @@ function LocationSearchBox(props) {
 						required='true' />
 					<Button bsStyle="success" type="submit" >Get Weather</Button>
 				</FormGroup>
-			</Form>
+			</form>
 		 )
 }
 
-LocationSearchBox.PropTypes ={
+LocationSearchBox.propTypes ={
 	className: PropTypes.string,
 	onUpdateLocation: PropTypes.func.isRequired,
 	onSubmitLocation: PropTypes.func.isRequired,

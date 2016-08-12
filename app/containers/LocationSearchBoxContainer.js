@@ -21,7 +21,7 @@ class LocationSearchBoxContainer extends Component {
 			location: ''
 		})
 		this.context.router.push({
-			pathName:'/forecast/' + searchLocation, 
+			pathname:'/forecast/' + searchLocation,
 			query: {
 				location: searchLocation
 			}
@@ -39,8 +39,8 @@ class LocationSearchBoxContainer extends Component {
 		return (
 		 <SearchBox 
 		 	onUpdateLocation = {this.handleLocationUpdate}
-			onSubmitLocation = {this.handleSubmitLocation} 
-			location = {this.state.location} />  
+			onSubmitLocation = {this.handleSubmitLocation}
+			location = {this.state.location} />
 		)
   
    }

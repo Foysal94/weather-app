@@ -14,7 +14,7 @@ function Forecast(props) {
    )
 }
 
-Forecast.PropTypes = {
+Forecast.propTypes = {
    Location: PropTypes.string.isRequired
 }
 
