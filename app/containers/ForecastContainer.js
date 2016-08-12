@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import Forecast from '../components/Forecast'
+import {getFiveDayForecast, getCurrentWeather} from '../Utilities/OpenWeatherAPI';
 
 class ForecastContainer extends Component {
 
    constructor(props,context) {
       super(props, context)
-      this.state =({
+      this.state = ({
          days: [],
          location: this.props.routeParams.location
 
@@ -20,11 +21,23 @@ class ForecastContainer extends Component {
    }
 
    componentDidMount() {
+      let location = this.state.location;
+      getFiveDayForecast(location)
+          .then (function (weatherData) {
+             console.log("Resposne data: " + weatherData.data)
+             console.log("Resposne status: " + weatherData.status)
+
+          }.bind(this))
+
+      console.log("Data from State:" + this.state.data)
+
    }
 
    render() {
       return(
-          <Forecast Location = {this.state.location}/>
+
+          <Forecast Location = {this.state.location}
+                     />
       )
    }
 }
