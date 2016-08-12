@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Forecast from '../components/Forecast'
-import {getFiveDayForecast, getCurrentWeather} from '../Utilities/OpenWeatherAPI';
+import Helpers from '../Utilities/OpenWeatherAPI';
 
 class ForecastContainer extends Component {
 
@@ -22,12 +22,12 @@ class ForecastContainer extends Component {
 
    componentDidMount() {
       let location = this.state.location;
-      getFiveDayForecast(location)
+      Helpers.getFiveDayForecast(location)
           .then (function (weatherData) {
              //console.log("Resposne data: " + weatherData.data)
              console.log("Resposne status: " + weatherData.status)
              this.setState({
-                data : weatherData.data
+                data : weatherData
              })
 
           }.bind(this))

@@ -19,11 +19,13 @@ const Helpers = {
       )
       .then(function(response) {
           return response.data.list.map(function (DayForecast) {
+             console.log( JSON.stringify(DayForecast,null, ' '))
              return [{
+
                 "DateTime" : DayForecast.dt,
-                "MinTemp" :DayForecast.main.temp_min,
-                "MaxTemp" : DayForecast.main.temp_max,
-                "Humidity" :DayForecast.main.humidity,
+                "MinTemp" :DayForecast.temp.min,
+                "MaxTemp" : DayForecast.temp.max,
+                "Humidity" :DayForecast.humidity,
                 "Description" : DayForecast.weather[0].main
              }]
           })
