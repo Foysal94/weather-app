@@ -26,6 +26,9 @@ class ForecastContainer extends Component {
           .then (function (weatherData) {
              console.log("Resposne data: " + weatherData.data)
              console.log("Resposne status: " + weatherData.status)
+             this.setState({
+                data : weatherData.data
+             })
 
           }.bind(this))
 
@@ -37,7 +40,7 @@ class ForecastContainer extends Component {
       return(
 
           <Forecast Location = {this.state.location}
-                     />
+                     data = {this.state.data} />
       )
    }
 }
