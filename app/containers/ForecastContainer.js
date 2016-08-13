@@ -24,15 +24,10 @@ class ForecastContainer extends Component {
       let location = this.state.location;
       Helpers.getFiveDayForecast(location)
           .then(function (weatherData) {
-             //console.log("Resposne data: " + weatherData.data)
-             console.log("Resposne status: " + weatherData.status)
-
              this.setState({
                 fiveDayForecast : weatherData
              })
-             var obj = this.state.fiveDayForecast
-             console.log("Type:" + typeof obj)
-             console.log(obj[1])
+
           }.bind(this))
 
    }
