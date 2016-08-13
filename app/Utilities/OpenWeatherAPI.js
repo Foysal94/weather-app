@@ -18,16 +18,14 @@ const Helpers = {
           'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + location + '&type=accurate&APPID=' + apiKey + '&cnt=5'
       )
       .then(function(response) {
-          return response.data.list.map(function (DayForecast) {
-             console.log( JSON.stringify(DayForecast,null, ' '))
-             return [{
-
-                "DateTime" : DayForecast.dt,
-                "MinTemp" :DayForecast.temp.min,
-                "MaxTemp" : DayForecast.temp.max,
-                "Humidity" :DayForecast.humidity,
-                "Description" : DayForecast.weather[0].main
-             }]
+          return response.data.list.map(function(dayForecast) {
+           //  console.log( JSON.stringify(dayForecast,null, ' '))
+             return {
+                "MinTemp" : dayForecast.temp.min,
+                "MaxTemp" : dayForecast.temp.max,
+                "Humidity" : dayForecast.humidity,
+                "Description" : dayForecast.weather[0].main
+             }
           })
       })
    }

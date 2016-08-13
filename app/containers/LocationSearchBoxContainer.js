@@ -1,17 +1,17 @@
 import React, {Component} from 'react'
 import {default as SearchBox} from '../components/LocationSearchBox'
 
-class LocationSearchBoxContainer extends Component {	
+class LocationSearchBoxContainer extends Component {
 
    constructor(props, context) {
 		super(props, context)
-	
+
       this.state = {
          location: ''
       }
 		this.handleSubmitLocation = this.handleSubmitLocation.bind(this)
       this.handleLocationUpdate = this.handleLocationUpdate.bind(this)
-		
+
    }
 
 	handleSubmitLocation(e) {
@@ -35,20 +35,20 @@ class LocationSearchBoxContainer extends Component {
    }
 
 	render() {
-		
+
 		return (
-		 <SearchBox 
+		 <SearchBox
 		 	onUpdateLocation = {this.handleLocationUpdate}
 			onSubmitLocation = {this.handleSubmitLocation}
 			location = {this.state.location} />
 		)
-  
+
    }
 }
 
 LocationSearchBoxContainer.contextTypes = {
-	history: React.PropTypes.object,
-	location: React.PropTypes.object,
+	history: React.PropTypes.object.isRequired,
+	location: React.PropTypes.object.isRequired,
 	router: React.PropTypes.object.isRequired
 }
 

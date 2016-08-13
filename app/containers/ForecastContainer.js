@@ -7,7 +7,7 @@ class ForecastContainer extends Component {
    constructor(props,context) {
       super(props, context)
       this.state = ({
-         days: [],
+         fiveDayForecast: [],
          location: this.props.routeParams.location
 
       })
@@ -23,29 +23,32 @@ class ForecastContainer extends Component {
    componentDidMount() {
       let location = this.state.location;
       Helpers.getFiveDayForecast(location)
-          .then (function (weatherData) {
+          .then(function (weatherData) {
              //console.log("Resposne data: " + weatherData.data)
              console.log("Resposne status: " + weatherData.status)
-             this.setState({
-                data : weatherData
-             })
 
+             this.setState({
+                fiveDayForecast : weatherData
+             })
+             var obj = this.state.fiveDayForecast
+             console.log("Type:" + typeof obj)
+             console.log(obj[1])
           }.bind(this))
 
    }
 
    render() {
       return(
-          <Forecast Location = {this.state.location}
-                     data = {this.state.data} />
+          <Forecast  location = {this.state.location}
+                     fiveDayForecast={this.state.fiveDayForecast} />
       )
    }
 }
 
 
 ForecastContainer.contextTypes = {
-   history: React.PropTypes.object,
-   location: React.PropTypes.object,
+   history: React.PropTypes.object.isRequired,
+   location: React.PropTypes.object.isRequired,
    router: React.PropTypes.object.isRequired
 }
 
