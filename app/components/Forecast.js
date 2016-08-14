@@ -54,14 +54,13 @@ function Forecast(props) {
    return (
        <div className='Forecast'>
           <h1>{props.location}</h1>
-          {console.log("props.fiveDayForecast: "  + props.fiveDayForecast)}
           <ul>
              {
                 props.fiveDayForecast.map( function(dayForecast) {
                    return(
                        <li>
                          <pre>
-         
+                            {dayForecast.Date.format("dddd, MMMM Do")}
                          </pre>
                        </li>
                    )

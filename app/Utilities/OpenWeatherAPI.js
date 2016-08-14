@@ -1,4 +1,5 @@
 import axios from 'axios'
+import moment from 'moment'
 
 const apiKey = '2208d407ec5744e0b06648427dce293b'
 const fiveDayAPICall = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=CITY-NAME&type=accurate&APPID=YOUR-API-KEY&cnt=5';
@@ -15,23 +16,28 @@ export function getCurrentWeather(location) {
 const Helpers = {
    getFiveDayForecast: function(location) {
       var currentDate = new Date()
+
       return axios.get(
           'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + location + '&type=accurate&APPID=' + apiKey + '&cnt=5'
       )
+
       .then(function(response) {
+        console.log( JSON.stringify(response.data,null, ' '))
           return response.data.list.map(function(dayForecast, index) {
-           //  console.log( JSON.stringify(dayForecast,null, ' '))
-             var date = new Date()
-             date.setDate(currentDate.getDate() + index )
-             //console.log(date.getDay()  + '/' + date.getDate() + '/' +  date.getFullYear());
+
+             var day = moment.unix(dayForecast.dt)
+             console.log("Day: " + day.format("dddd, MMMM Do"))
+
              return {
-               "Date" : date,
+               "Date" : day,
                "MinTemp" : dayForecast.temp.min,
                "MaxTemp" : dayForecast.temp.max,
                "Humidity" : dayForecast.humidity,
                "Description" : dayForecast.weather[0].main
              }
+
           })
+
       })
    }
 
