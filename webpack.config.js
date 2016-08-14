@@ -33,7 +33,13 @@ const common = {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
+            },
+            {
+                test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+                loader : 'file-loader'
             }
+
+
         ]
     },
 
