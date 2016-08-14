@@ -94,6 +94,11 @@ exports.extractCSS = function(paths) {
                test: /(scss|css)$/,
                loader: ExtractTextPlugin.extract('style', "css?modules", "sass" ),
                include: paths
+            },
+            {
+               test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+               loader : 'file-loader',
+               include: paths
             }
          ]
       },
@@ -111,6 +116,11 @@ exports.setupCSS = function(paths) {
             {
                test: /(scss|css)$/, ///\.scss$/
                loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules','sass?sourceMap'),
+               include: paths
+            },
+            {
+               test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+               loader : 'file-loader',
                include: paths
             }
          ],
