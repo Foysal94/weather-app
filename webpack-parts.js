@@ -101,14 +101,16 @@ exports.extractCSS = function(paths) {
             },
             {
                test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-               loader : 'file-loader',
+               loader : 'file-loader?name=fonts/[name].[hash].[ext]',
                include: paths
             }
          ]
       },
       plugins: [
          // Output extracted CSS to a file
-         new ExtractTextPlugin('bundle.css')
+         new ExtractTextPlugin('[name].css', {
+            allChunks: true
+         })
       ]
    };
 };
@@ -128,7 +130,7 @@ exports.setupCSS = function(paths) {
             },
             {
                test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-               loader : 'file-loader',
+               loader : 'file-loader?name=fonts/[name].[hash].[ext]',
                include: paths
             }
          ],
