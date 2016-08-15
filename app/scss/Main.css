@@ -16,3 +16,8 @@ input, select {
   max-width: 280px;
 }
 
+
+
+i[class^="wi-"], i[class*=" wi-"] {
+  font-size: 150px;
+}
