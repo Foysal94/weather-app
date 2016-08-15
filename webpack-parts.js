@@ -92,7 +92,11 @@ exports.extractCSS = function(paths) {
             // Extract CSS during build
             {
                test: /(scss|css)$/,
-               loader: ExtractTextPlugin.extract('style', "css?modules", "sass" ),
+               loader: ExtractTextPlugin.extract(
+                   'style',
+                   'css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]',
+                   "sass"
+               ),
                include: paths
             },
             {
@@ -104,7 +108,7 @@ exports.extractCSS = function(paths) {
       },
       plugins: [
          // Output extracted CSS to a file
-         new ExtractTextPlugin('[name].[chunkhash].css')
+         new ExtractTextPlugin('bundle.css')
       ]
    };
 };
@@ -114,8 +118,12 @@ exports.setupCSS = function(paths) {
       module: {
          loaders: [
             {
-               test: /(scss|css)$/, ///\.scss$/
-               loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules','sass?sourceMap'),
+               test: /(scss|css)$/,
+               loaders: [
+                  'style',
+                  'css-loader?modules=true&sourceMap=true&localIdentName=[name]__[local]___[hash:base64:5]',
+                  'sass?sourceMap=true'
+               ],
                include: paths
             },
             {
@@ -125,9 +133,5 @@ exports.setupCSS = function(paths) {
             }
          ],
       },
-      plugins: [
-         // Output extracted CSS to a file
-         new ExtractTextPlugin('bundle.css')
-      ]
    }
 };
