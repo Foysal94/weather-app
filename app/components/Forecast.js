@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
 import classNames from 'classnames'
+import styles from  '../scss/components/Forecast.scss'
 
 function puke(object) {
    return <pre>{JSON.stringify(object,null, ' ')}</pre>
@@ -86,15 +87,15 @@ function getWeatherIconClass(description) {
 
 function Forecast(props) {
    return (
-       <div className='Forecast'>
+       <div>
           <h1>{props.location}</h1>
-          <ul>
+          <ul className={styles.forecastList}>
              {
                 props.fiveDayForecast.map( function(dayForecast) {
 
                    const weatherClass = getWeatherIconClass(dayForecast.Description)
                    return(
-                       <li>
+                       <li className={styles.dayForecast}>
                             {<i className={weatherClass}></i>}
                            <h2>{dayForecast.Date.format("dddd, MMMM Do")}</h2>
                        </li>
