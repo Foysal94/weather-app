@@ -16,8 +16,8 @@ class ForecastContainer extends Component {
 
    }
 
-   handleDaySelection() {
-
+   handleDaySelection(e) {
+      
    }
 
    componentDidMount() {
@@ -35,7 +35,8 @@ class ForecastContainer extends Component {
    render() {
       return(
           <Forecast  location = {this.state.location}
-                     fiveDayForecast={this.state.fiveDayForecast} />
+                     fiveDayForecast={this.state.fiveDayForecast}
+                     onDaySelection={this.handleDaySelection}/>
       )
    }
 }

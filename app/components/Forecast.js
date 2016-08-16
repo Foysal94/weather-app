@@ -113,7 +113,8 @@ function Forecast(props) {
 
 Forecast.propTypes = {
    location: PropTypes.string.isRequired,
-   fiveDayForecast: PropTypes.array.isRequired
+   fiveDayForecast: PropTypes.array.isRequired,
+   onDaySelection: PropTypes.func.isRequired
 }
 
 // rain
