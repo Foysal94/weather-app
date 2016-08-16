@@ -3,7 +3,8 @@
 }
 
 .dayForecast {
-  margin: 50px 120px;
+  margin-top: 50px;
+  margin-left:120px;
   display: inline;
   float:left;
   li {
@@ -17,4 +18,15 @@
     color: red;
     margin-left: 15%;
   }
+}
+
+.locationHeader {
+  margin-left: 41%;
+  font-size: 80px;
+}
+
+.selectADay {
+  margin-left: 45%;
+  font-size:25px;
+  margin-top:30px;
 }
