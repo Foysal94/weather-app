@@ -95,10 +95,12 @@ function Forecast(props) {
 
                    const weatherClass = getWeatherIconClass(dayForecast.Description)
                    return(
-                       <li className={styles.dayForecast}>
-                            {<i className={weatherClass}></i>}
-                           <h2>{dayForecast.Date.format("dddd, MMMM Do")}</h2>
-                       </li>
+                        <div className={styles.dayForecast}>
+                           <li>
+                              {<i className={weatherClass}></i>}
+                              <h3>{dayForecast.Date.format("dddd, MMMM Do")}</h3>
+                           </li>
+                       </div>
                    )
 
                 })
