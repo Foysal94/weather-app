@@ -37,7 +37,9 @@ class ForecastContainer extends Component {
 
    render() {
       if(this.props.location.pathname.includes('details')){
-         <Details/>
+         return (
+             <Details location = {this.state.location}/>
+         )
       }
 
       else {
