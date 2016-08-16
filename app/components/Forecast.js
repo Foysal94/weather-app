@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react'
+import classNames from 'classnames'
 
 function puke(object) {
    return <pre>{JSON.stringify(object,null, ' ')}</pre>
@@ -49,6 +50,31 @@ function convertDayNumberToString(dayNumber) {
    return day;
 }
 
+function getWeatherIcon(description) {
+   var weatherClass = 'wi '
+
+   switch(description) {
+      case 'Clouds':
+         weatherClass += 'wi-cloudy'
+         break;
+
+      case 'Rain':
+         weatherClass += 'wi-rain'
+         break;
+
+      case 'Clear':
+         weatherClass += 'wi-cloud'
+         break;
+
+      default:
+         weatherClass += 'wi-cloud'
+         break;
+   }
+
+   return weatherClass;
+
+}
+
 
 function Forecast(props) {
    return (
@@ -57,13 +83,19 @@ function Forecast(props) {
           <ul>
              {
                 props.fiveDayForecast.map( function(dayForecast) {
+
+                   var weatherClass = getWeatherIcon(dayForecast.Description)
+                   console.log('weatherClass: ' + weatherClass)
                    return(
                        <li>
                          <pre>
                             {dayForecast.Date.format("dddd, MMMM Do")}
+                            {dayForecast.Description}
+                            {<i className={weatherClass}></i>}
                          </pre>
                        </li>
                    )
+
                 })
              }
           </ul>
@@ -75,5 +107,10 @@ Forecast.propTypes = {
    location: PropTypes.string.isRequired,
    fiveDayForecast: PropTypes.array
 }
+
+// rain
+// clear
+// clouds
+// sunny
 
 export default Forecast
