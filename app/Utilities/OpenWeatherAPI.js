@@ -22,7 +22,7 @@ const Helpers = {
       )
 
       .then(function(response) {
-        console.log( JSON.stringify(response.data,null, ' '))
+        //console.log( JSON.stringify(response.data,null, ' '))
           return response.data.list.map(function(dayForecast, index) {
 
              var day = moment.unix(dayForecast.dt)
