@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Forecast from '../components/Forecast'
 import Helpers from '../Utilities/OpenWeatherAPI';
+import Details from '../components/Details';
 
 class ForecastContainer extends Component {
 
@@ -8,7 +9,7 @@ class ForecastContainer extends Component {
       super(props, context)
       this.state = ({
          fiveDayForecast: [],
-         location: this.props.routeParams.location
+         location: this.props.params.location
 
       })
 
@@ -35,11 +36,18 @@ class ForecastContainer extends Component {
    }
 
    render() {
-      return(
-          <Forecast  location = {this.state.location}
-                     fiveDayForecast={this.state.fiveDayForecast}
-                     onDayClick={this.handleDayClick}/>
-      )
+      if(this.props.location.pathname.includes('details')){
+         <Details/>
+      }
+
+      else {
+         return(
+             <Forecast  location = {this.state.location}
+                        fiveDayForecast={this.state.fiveDayForecast}
+                        onDayClick={this.handleDayClick}/>
+         )
+      }
+
    }
 }
 
