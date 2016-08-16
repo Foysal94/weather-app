@@ -50,9 +50,16 @@ function convertDayNumberToString(dayNumber) {
    return day;
 }
 
-function getWeatherIcon(description) {
-   var weatherClass = 'wi '
+function getWeatherIconClass(description) {
+   let weatherClass = classNames({
+      'wi': true,
+      'wi-cloudy': description === 'Clouds',
+      'wi-rain': description === 'Rain',
+      'wi-cloud': description === 'Clear'
 
+   })
+
+   /*
    switch(description) {
       case 'Clouds':
          weatherClass += 'wi-cloudy'
@@ -70,6 +77,7 @@ function getWeatherIcon(description) {
          weatherClass += 'wi-cloud'
          break;
    }
+   */
 
    return weatherClass;
 
@@ -84,15 +92,11 @@ function Forecast(props) {
              {
                 props.fiveDayForecast.map( function(dayForecast) {
 
-                   var weatherClass = getWeatherIcon(dayForecast.Description)
-                   console.log('weatherClass: ' + weatherClass)
+                   const weatherClass = getWeatherIconClass(dayForecast.Description)
                    return(
                        <li>
-                         <pre>
-                            {dayForecast.Date.format("dddd, MMMM Do")}
-                            {dayForecast.Description}
                             {<i className={weatherClass}></i>}
-                         </pre>
+                           <h2>{dayForecast.Date.format("dddd, MMMM Do")}</h2>
                        </li>
                    )
 
@@ -105,7 +109,7 @@ function Forecast(props) {
 
 Forecast.propTypes = {
    location: PropTypes.string.isRequired,
-   fiveDayForecast: PropTypes.array
+   fiveDayForecast: PropTypes.array.isRequired
 }
 
 // rain
