@@ -26,7 +26,7 @@ const Helpers = {
           return response.data.list.map(function(dayForecast, index) {
 
              var day = moment.unix(dayForecast.dt)
-             console.log("Day: " + day.format("dddd, MMMM Do"))
+             //console.log("Day: " + day.format("dddd, MMMM Do"))
 
              return {
                "Date" : day,

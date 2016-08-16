@@ -92,18 +92,17 @@ function Forecast(props) {
           <p className={styles.selectADay}>Select a day </p>
           <ul className={styles.forecastList}>
              {
-                props.fiveDayForecast.map( function(dayForecast) {
-
+                props.fiveDayForecast.map( function(dayForecast, index) {
+                   //console.log(JSON.stringify(dayForecast,null, ' '))
                    const weatherClass = getWeatherIconClass(dayForecast.Description)
                    return(
-                        <div className={styles.dayForecast}>
+                        <div id={index} onClick={props.onDayClick.bind(this, dayForecast)} className={styles.dayForecast}>
                            <li>
                               {<i className={weatherClass}></i>}
                               <h3>{dayForecast.Date.format("dddd, MMMM Do")}</h3>
                            </li>
                        </div>
                    )
-
                 })
              }
           </ul>
@@ -114,7 +113,7 @@ function Forecast(props) {
 Forecast.propTypes = {
    location: PropTypes.string.isRequired,
    fiveDayForecast: PropTypes.array.isRequired,
-   onDaySelection: PropTypes.func.isRequired
+   onDayClick: PropTypes.func.isRequired
 }
 
 // rain

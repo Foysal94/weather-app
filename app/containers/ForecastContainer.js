@@ -12,12 +12,14 @@ class ForecastContainer extends Component {
 
       })
 
-      this.handleDaySelection = this.handleDaySelection.bind(this)
+      this.handleDayClick = this.handleDayClick.bind(this)
 
    }
 
-   handleDaySelection(e) {
+   handleDayClick(dayForecast) {
+      console.log(JSON.stringify(dayForecast,null, ' '))
       
+
    }
 
    componentDidMount() {
@@ -36,7 +38,7 @@ class ForecastContainer extends Component {
       return(
           <Forecast  location = {this.state.location}
                      fiveDayForecast={this.state.fiveDayForecast}
-                     onDaySelection={this.handleDaySelection}/>
+                     onDayClick={this.handleDayClick}/>
       )
    }
 }
