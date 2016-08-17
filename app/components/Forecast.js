@@ -94,12 +94,12 @@ function Forecast(props) {
              {
                 props.fiveDayForecast.map( function(dayForecast, index) {
                    //console.log(JSON.stringify(dayForecast,null, ' '))
-                   const weatherClass = getWeatherIconClass(dayForecast.Description)
+                   const weatherClass = getWeatherIconClass(dayForecast.description)
                    return(
                         <div id={index} onClick={props.onDayClick.bind(this, dayForecast)} className={styles.dayForecast}>
                            <li>
                               {<i className={weatherClass}></i>}
-                              <h3>{dayForecast.Date.format("dddd, MMMM Do")}</h3>
+                              <h3>{dayForecast.date.format("dddd, MMMM Do")}</h3>
                            </li>
                        </div>
                    )

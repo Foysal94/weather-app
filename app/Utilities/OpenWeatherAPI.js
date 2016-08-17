@@ -26,14 +26,14 @@ const Helpers = {
           return response.data.list.map(function(dayForecast, index) {
 
              var day = moment.unix(dayForecast.dt)
-             //console.log("Day: " + day.format("dddd, MMMM Do"))
 
              return {
-               "Date" : day,
-               "MinTemp" : dayForecast.temp.min,
-               "MaxTemp" : dayForecast.temp.max,
-               "Humidity" : dayForecast.humidity,
-               "Description" : dayForecast.weather[0].main
+               "unixTimeStamp" : dayForecast.dt,
+               "date" : day,
+               "minTemp" : dayForecast.temp.min,
+               "maxTemp" : dayForecast.temp.max,
+               "humidity" : dayForecast.humidity,
+               "description" : dayForecast.weather[0].main
              }
 
           })
