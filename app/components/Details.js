@@ -9,21 +9,27 @@ function Details(props) {
    return (
       <div>
         <h1>Its working</h1>
-        <h2>{props.minTemp} </h2>
-        {puke(props.dayForecast)}
+        <ul>
+          <li>{props.location}</li>
+          <li>{props.minTemp}</li>
+          <li>{props.maxTemp}</li>
+          <li>{props.humidity}</li>
+          <li>{props.description}</li>
+        </ul>
+
       </div>
 
    )
 }
 
 Details.propTypes = {
-  /*
+
   location: PropTypes.string.isRequired,
   minTemp: PropTypes.string.isRequired,
   maxTemp: PropTypes.string.isRequired,
   humidity: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired
-  */
+
   /*
   dayForecast: React.PropTypes.shape({
 

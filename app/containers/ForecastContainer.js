@@ -10,7 +10,7 @@ class ForecastContainer extends Component {
       this.state = ({
          fiveDayForecast: [],
          location: this.props.params.location,
-         dayForecast: this.props.location.query.dayForecast
+
       })
       console.log("Constructor dayForecast: " + JSON.stringify(this.state.dayForecast,null, ' '))
       this.handleDayClick = this.handleDayClick.bind(this)
@@ -33,12 +33,9 @@ class ForecastContainer extends Component {
    handleDayClick(dayForecast) {
      let searchLocation = this.state.location
      let query = this.returnDetailsComponentQuery(dayForecast)
-     this.setState({
-       dayForecast: query
-     })
      this.context.router.push({
          pathname:'/forecast/' + searchLocation + '/details/' + dayForecast.unixTimeStamp,
-         query
+         query : query
       })
       
 
@@ -64,7 +61,7 @@ class ForecastContainer extends Component {
                       maxTemp = {this.props.location.query.maxTemp}
                       humidity = {this.props.location.query.humidity}
                       description = {this.props.location.query.description}
-                      dayForecast = {this.state.dayForecast}/>
+             />
          )
       }
 
