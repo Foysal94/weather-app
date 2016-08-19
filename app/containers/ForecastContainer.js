@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Forecast from '../components/Forecast'
-import Helpers from '../Utilities/OpenWeatherAPI';
+import Helpers from '../Utilities/OpenWeatherHelpers';
 import Details from '../components/Details';
 
 class ForecastContainer extends Component {
