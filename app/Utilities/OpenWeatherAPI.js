@@ -25,9 +25,9 @@ const Helpers = {
         //console.log( JSON.stringify(response.data,null, ' '))
           return response.data.list.map(function(dayForecast, index) {
 
-             var day = moment.unix(dayForecast.dt)
+            var day = moment.unix(dayForecast.dt)
 
-             return {
+            return {
                "unixTimeStamp" : dayForecast.dt,
                "date" : day,
                "minTemp" : dayForecast.temp.min,

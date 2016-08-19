@@ -7,16 +7,23 @@ function puke(object) {
 
 function Details(props) {
    return (
-       <div>
-          <h1>Its working</h1>
-          {puke(props.dayForecast)}
-       </div>
+      <div>
+        <h1>Its working</h1>
+        <h2>{props.minTemp} </h2>
+        {puke(props.dayForecast)}
+      </div>
 
    )
 }
 
 Details.propTypes = {
-   location: PropTypes.string.isRequired,
+  /*
+  location: PropTypes.string.isRequired,
+  minTemp: PropTypes.string.isRequired,
+  maxTemp: PropTypes.string.isRequired,
+  humidity: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
+  */
   /*
   dayForecast: React.PropTypes.shape({
 

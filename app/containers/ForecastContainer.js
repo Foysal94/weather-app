@@ -10,25 +10,33 @@ class ForecastContainer extends Component {
       this.state = ({
          fiveDayForecast: [],
          location: this.props.params.location,
-         dayForecast: undefined
+         dayForecast: this.props.location.query.dayForecast
       })
       console.log("Constructor dayForecast: " + JSON.stringify(this.state.dayForecast,null, ' '))
       this.handleDayClick = this.handleDayClick.bind(this)
+      this.returnDetailsComponentQuery = this.returnDetailsComponentQuery.bind(this)
 
    }
 
+   returnDetailsComponentQuery(dayForecast) {
+     let query = {
+       date: dayForecast.date,
+       minTemp: dayForecast.minTemp,
+       maxTemp: dayForecast.maxTemp,
+       humidity: dayForecast.humidity,
+       description: dayForecast.description
+     }
+
+     return query
+   }
+
    handleDayClick(dayForecast) {
-      let searchLocation = this.state.location
-      let query = {
-         location: searchLocation,
-         dayForecast : dayForecast
-      }
-
-      this.setSate({
-         dayForecast: dayForecast
-      })
-
-      this.context.router.push({
+     let searchLocation = this.state.location
+     let query = this.returnDetailsComponentQuery(dayForecast)
+     this.setState({
+       dayForecast: query
+     })
+     this.context.router.push({
          pathname:'/forecast/' + searchLocation + '/details/' + dayForecast.unixTimeStamp,
          query
       })
@@ -51,16 +59,20 @@ class ForecastContainer extends Component {
    render() {
       if(this.props.location.pathname.includes('details')){
          return (
-             <Details  location = {this.state.location}
-                       dayForecast={this.props.location.query.dayForecast  }/>
+             <Details location = {this.state.location}
+                      minTemp = {this.props.location.query.minTemp}
+                      maxTemp = {this.props.location.query.maxTemp}
+                      humidity = {this.props.location.query.humidity}
+                      description = {this.props.location.query.description}
+                      dayForecast = {this.state.dayForecast}/>
          )
       }
 
       else {
          return(
-             <Forecast  location = {this.state.location}
-                        fiveDayForecast={this.state.fiveDayForecast}
-                        onDayClick={this.handleDayClick}/>
+             <Forecast location = {this.state.location}
+                       fiveDayForecast={this.state.fiveDayForecast}
+                       onDayClick={this.handleDayClick}/>
          )
       }
 
