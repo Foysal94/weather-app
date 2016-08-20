@@ -3,7 +3,7 @@ import {Navbar, NavbarHeader, NavbarBrand, NavbarCollapse} from 'react-bootstrap
 import {Link} from 'react-router'
 
 import {default as SearchBoxContainer} from '../containers/LocationSearchBoxContainer'
-import styles from '../scss/components/Navbar.scss'
+import styles from '../scss/components/Navbar.css'
 
 class MainNavbar extends Component {
 

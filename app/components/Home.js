@@ -1,6 +1,6 @@
 import React from 'react'
 import {default as SearchBox} from '../containers/LocationSearchBoxContainer'
-import styles from '../scss/components/Home.scss'
+import styles from '../scss/components/Home.css'
 
 export default function Home() {
    return (

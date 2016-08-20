@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import styles from  '../scss/components/Forecast.scss'
+import styles from  '../scss/components/Forecast.css'
 import OpenWeatherHelpers from '../Utilities/OpenWeatherHelpers'
 import Helpers from '../Utilities/Helpers'
 
