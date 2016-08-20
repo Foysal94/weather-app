@@ -121,6 +121,12 @@ exports.extractCSS = function(paths) {
 };
 
 exports.setupCSS = function(paths) {
+
+  var autoprefixerOptions = {
+    browsers: ['last 2 versions']
+  }
+
+
   return {
     module: {
       loaders: [
@@ -129,7 +135,7 @@ exports.setupCSS = function(paths) {
           loaders: [
             'style',
             'css-loader?modules=true&sourceMap=true&localIdentName=[name]__[local]___[hash:base64:5]',
-            'post-css'
+            'postcss'
           ],
           include: paths
         },
@@ -141,10 +147,7 @@ exports.setupCSS = function(paths) {
       ],
     },
 
-    postcss: function () {
-      var autoprefixerOptions = {
-        browsers: ['last 2 versions']
-      }
+    postcss: function()  {
 
       return [
         postcssSimpleVars,
@@ -154,6 +157,9 @@ exports.setupCSS = function(paths) {
       ]
 
     }
+
+
+
   }
 
 }
