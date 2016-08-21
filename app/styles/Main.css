@@ -19,6 +19,11 @@ input, select {
   max-width: 280px;
 }
 
+li {
+  list-style-type: none;
+}
+
+
 i[class^="wi-"], i[class*=" wi-"] {
   font-size: 140px;
 }

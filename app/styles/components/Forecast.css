@@ -5,10 +5,6 @@
   margin-left:120px;
   display: inline;
   float:left;
-
-  li {
-    list-style-type: none;
-  }
   h3 {
     margin-top:50px;
   }
@@ -19,7 +15,7 @@
   font-size: 80px;
 }
 
-.selectADay {
+.selectADayText {
   margin-left: 45%;
   font-size:25px;
   margin-top:30px;

@@ -58,7 +58,7 @@ function Forecast(props) {
   return (
       <div>
         <h1 className={styles.locationHeader}>{props.location}</h1>
-        <p className={styles.selectADay}>Select a day </p>
+        <p className={styles.selectADayText}>Select a day </p>
         <ul className={styles.forecastList}>
           {
             props.fiveDayForecast.map( function(dayForecast, index) {
