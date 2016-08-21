@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {PropTypes,Component} from 'react'
 import {default as SearchBox} from '../components/LocationSearchBox'
 
 class LocationSearchBoxContainer extends Component {
@@ -38,9 +38,10 @@ class LocationSearchBoxContainer extends Component {
 
 		return (
 		 <SearchBox
-		 	onUpdateLocation = {this.handleLocationUpdate}
-			onSubmitLocation = {this.handleSubmitLocation}
-			location = {this.state.location} />
+          onUpdateLocation = {this.handleLocationUpdate}
+          onSubmitLocation = {this.handleSubmitLocation}
+          location = {this.state.location}
+          callingParentComponent = {this.props.parent}/>
 		)
 
    }
@@ -52,5 +53,8 @@ LocationSearchBoxContainer.contextTypes = {
 	router: React.PropTypes.object.isRequired
 }
 
+LocationSearchBoxContainer.propTypes = {
+  parent: PropTypes.string
+}
 export default LocationSearchBoxContainer
 

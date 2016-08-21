@@ -13,7 +13,7 @@ function MainNavbar() {
         </NavbarBrand>
         <Navbar.Collapse>
           <Navbar.Form pullRight>
-            <SearchBoxContainer />
+            <SearchBoxContainer parent='MainNavbar'/>
           </Navbar.Form>
         </Navbar.Collapse>
       </Navbar>

@@ -18,8 +18,8 @@ function LocationSearchBox(props) {
 		 )
 }
 
-LocationSearchBox.propTypes ={
-	className: PropTypes.string,
+LocationSearchBox.propTypes = {
+	callingParentComponent: PropTypes.string,
 	onUpdateLocation: PropTypes.func.isRequired,
 	onSubmitLocation: PropTypes.func.isRequired,
 	location: PropTypes.string.isRequired
