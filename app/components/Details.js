@@ -1,16 +1,19 @@
 import React, {PropTypes} from 'react'
 import Helpers from '../Utilities/Helpers'
+import styles from '../styles/components/Details.css'
 
 function puke(object) {
-   return <pre>{JSON.stringify(object,null, ' ')}</pre>
-   //<div>DATA: {puke(props)}</div>
+  return <pre>{JSON.stringify(object,null, ' ')}</pre>
+  //<div>DATA: {puke(props)}</div>
 }
 
 function Details(props) {
-   return (
+  const weatherClass = Helpers.getWeatherIconClass(props.description)
+  return (
       <div>
         <h1>Its working</h1>
         <ul>
+          <i className={weatherClass}></i>
           <li>{props.location}</li>
           <li>{props.minTemp}</li>
           <li>{props.maxTemp}</li>
@@ -19,8 +22,7 @@ function Details(props) {
         </ul>
 
       </div>
-
-   )
+  )
 }
 
 Details.propTypes = {
@@ -32,7 +34,7 @@ Details.propTypes = {
   description: PropTypes.string.isRequired
 
   /*
-  dayForecast: React.PropTypes.shape({
+   dayForecast: React.PropTypes.shape({
 
    })
    */
