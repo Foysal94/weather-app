@@ -7,20 +7,29 @@ function puke(object) {
   //<div>DATA: {puke(props)}</div>
 }
 
+function propsHTML(item) {
+  return (
+      <li>
+        <h2>{item}</h2>
+      </li>
+  )
+}
+
 function Details(props) {
   const weatherClass = Helpers.getWeatherIconClass(props.description)
   return (
-      <div>
-        <h1>Its working</h1>
-        <ul>
+      <div className={styles.dayForecast}>
+        <ul className={styles.list}>
           <i className={weatherClass}></i>
-          <li>{props.location}</li>
-          <li>{props.minTemp}</li>
-          <li>{props.maxTemp}</li>
-          <li>{props.humidity}</li>
-          <li>{props.description}</li>
-        </ul>
 
+          {propsHTML(props.date)}
+          {propsHTML(props.location)}
+          {propsHTML(props.description)}
+          {propsHTML(props.minTemp)}
+          {propsHTML(props.maxTemp)}
+          {propsHTML(props.humidity)}
+
+        </ul>
       </div>
   )
 }
@@ -31,8 +40,8 @@ Details.propTypes = {
   minTemp: PropTypes.string.isRequired,
   maxTemp: PropTypes.string.isRequired,
   humidity: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
-
+  description: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired
   /*
    dayForecast: React.PropTypes.shape({
 

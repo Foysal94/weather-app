@@ -12,21 +12,21 @@ class ForecastContainer extends Component {
          location: this.props.params.location,
 
       })
-      console.log("Constructor dayForecast: " + JSON.stringify(this.state.dayForecast,null, ' '))
       this.handleDayClick = this.handleDayClick.bind(this)
       this.returnDetailsComponentQuery = this.returnDetailsComponentQuery.bind(this)
 
    }
 
    returnDetailsComponentQuery(dayForecast) {
+     let stringDate = dayForecast.date.format("dddd, MMMM Do")
      let query = {
-       date: dayForecast.date,
+       date: stringDate,
        minTemp: dayForecast.minTemp,
        maxTemp: dayForecast.maxTemp,
        humidity: dayForecast.humidity,
        description: dayForecast.description
      }
-
+     console.log(query.date)
      return query
    }
 
@@ -61,6 +61,7 @@ class ForecastContainer extends Component {
                       maxTemp = {this.props.location.query.maxTemp}
                       humidity = {this.props.location.query.humidity}
                       description = {this.props.location.query.description}
+                      date = {this.props.location.query.date}
              />
          )
       }
