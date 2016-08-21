@@ -1,1 +1,4 @@
-$weatherIconColour: #FF0000;
+.getWeatherIconColor {
+  color: #FF0000;
+}
+
