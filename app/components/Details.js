@@ -19,15 +19,41 @@ function Details(props) {
   const weatherClass = Helpers.getWeatherIconClass(props.description)
   return (
       <div className={styles.dayForecast}>
-        <ul className={styles.list}>
+        <div className={styles.dayDate}>
           <i className={weatherClass}></i>
+          <h3>{props.date}</h3>
+        </div>
+        <ul className={styles.list}>
 
-          {propsHTML(props.date)}
-          {propsHTML(props.location)}
-          {propsHTML(props.description)}
-          {propsHTML(props.minTemp)}
-          {propsHTML(props.maxTemp)}
-          {propsHTML(props.humidity)}
+          <li>
+            <p>{props.location}</p>
+          </li>
+
+          <li>
+            <p>{props.description}</p>
+          </li>
+
+          <li>
+            <p>
+              <span>min temp: </span>
+              {props.minTemp}
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <span>max temp: </span>
+              {props.maxTemp}
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <span>humidity: </span>
+              {props.humidity}
+            </p>
+          </li>
+
 
         </ul>
       </div>

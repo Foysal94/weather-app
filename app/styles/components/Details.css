@@ -1,9 +1,29 @@
 .dayForecast {
+  margin-top:30px;
+
+}
+
+.dayDate {
   margin-left: 41%;
+  i {
+    margin-left: 40px;
+  }
+
+  h3 {
+    margin-top: 40px;
+  }
 }
 
 .list {
+  max-width: 400px;
+  text-align:center;
+  margin-left:35%;
   li {
-    margin-top:30px;
+    margin-top: 25px;
   }
+
+  p {
+    font-size:30px;
+  }
+
 }
