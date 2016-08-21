@@ -1,13 +1,23 @@
 
 .dayForecast {
   margin-top: 50px;
-  margin-left:120px;
+  margin-left: 120px;
   display: inline;
-  float:left;
-  h3 {
-    margin-top:50px;
+  float: left;
+
+  li {
+
+    h3 {
+      margin-top: 50px;
+    }
+
+    i {
+      margin-left: 40px;
+    }
+
   }
 }
+
 
 .locationHeader {
   margin-left: 41%;
