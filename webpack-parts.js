@@ -5,6 +5,7 @@ var  ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var postcssSimpleVars = require("postcss-simple-vars")
 var postcssNested = require("postcss-nested")
+var postcssImport = require("postcss-import")
 
 exports.devServer = function(options) {
   return {
@@ -122,11 +123,6 @@ exports.extractCSS = function(paths) {
 
 exports.setupCSS = function(paths) {
 
-  var autoprefixerOptions = {
-    browsers: ['last 2 versions']
-  }
-
-
   return {
     module: {
       loaders: [
@@ -136,6 +132,7 @@ exports.setupCSS = function(paths) {
             'style',
             'css-loader?modules=true&sourceMap=true&localIdentName=[name]__[local]___[hash:base64:5]',
             'postcss'
+
           ],
           include: paths
         },
@@ -147,13 +144,20 @@ exports.setupCSS = function(paths) {
       ],
     },
 
-    postcss: function()  {
+    postcss: function(paths, webpack)  {
 
       return [
-        postcssSimpleVars,
-        postcssNested,
-        autoprefixer({autoprefixerOptions})
+        autoprefixer({
+          browsers: ['last 2 versions']
+        }),
 
+        postcssImport ({
+          path: paths,
+          addDependencyTo: webpack
+        }),
+
+        postcssSimpleVars,
+        postcssNested
       ]
 
     }
