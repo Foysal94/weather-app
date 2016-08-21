@@ -1,9 +1,27 @@
 import React, {PropTypes, Component} from 'react'
 import {Form, Button, FormGroup, FormControl} from 'react-bootstrap'
+import styles from '../styles/components/LocationSearchBox.css'
+
+function getClass(parent) {
+  let componentStyles;
+
+  switch(parent) {
+    case 'Home':
+      componentStyles = styles.Home
+      break;
+
+    case 'MainNavbar':
+      componentStyles = styles.MainNavbar
+      break;
+  }
+
+  return componentStyles
+}
 
 function LocationSearchBox(props) {
+      let ButtonStyles = getClass(props.callingParentComponent)
+
 		return (
-			
 			<form onSubmit={props.onSubmitLocation} >
 				<FormGroup>
 					<FormControl 
@@ -12,7 +30,7 @@ function LocationSearchBox(props) {
 						value={props.location}
 						onChange={props.onUpdateLocation}
 						required='true' />
-					<Button bsStyle="success" type="submit" >Get Weather</Button>
+					<Button bsStyle="success" type="submit" className={ButtonStyles} >Get Weather</Button>
 				</FormGroup>
 			</form>
 		 )
