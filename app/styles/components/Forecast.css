@@ -1,6 +1,4 @@
-.forecastList {
-
-}
+@import '../variables.css';
 
 .dayForecast {
   margin-top: 50px;
@@ -16,7 +14,7 @@
   }
 
   i {
-    color: red;
+    color: $weatherIconColour;
     margin-left: 15%;
   }
 }
