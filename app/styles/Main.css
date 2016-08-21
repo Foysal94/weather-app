@@ -1,3 +1,6 @@
+@import '../variables.css';
+
+
 /* Site CSS */
 body {
   padding-top: 50px;
@@ -18,4 +21,8 @@ input, select {
 
 i[class^="wi-"], i[class*=" wi-"] {
   font-size: 140px;
+}
+
+i {
+  color: $ weatherIconColour;
 }

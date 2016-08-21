@@ -12,11 +12,6 @@
   h3 {
     margin-top:50px;
   }
-
-  i {
-    color: $weatherIconColour;
-    margin-left: 15%;
-  }
 }
 
 .locationHeader {
