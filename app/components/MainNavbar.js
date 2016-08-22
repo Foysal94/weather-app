@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Navbar, NavbarHeader, NavbarBrand, NavbarCollapse} from 'react-bootstrap';
+import React from 'react';
+import {Navbar, NavbarBrand} from 'react-bootstrap';
 import {Link} from 'react-router'
 
 import {default as SearchBoxContainer} from '../containers/LocationSearchBoxContainer'
