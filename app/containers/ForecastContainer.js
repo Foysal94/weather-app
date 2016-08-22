@@ -9,7 +9,7 @@ class ForecastContainer extends Component {
       super(props, context)
       this.state = ({
          fiveDayForecast: [],
-         location: this.props.params.location,
+         location:props.params.location,
 
       })
       this.handleDayClick = this.handleDayClick.bind(this)
@@ -26,7 +26,7 @@ class ForecastContainer extends Component {
        humidity: dayForecast.humidity,
        description: dayForecast.description
      }
-     console.log(query.date)
+
      return query
    }
 
