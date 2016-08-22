@@ -28,6 +28,13 @@ const common = {
    },
 
    module: {
+      preLoaders: [
+         {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loader: 'eslint-loader'
+         },
+      ],
       loaders: [
          {
             test: /\.jsx?$/,
