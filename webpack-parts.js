@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 var webpack = require('webpack');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var  ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -167,3 +169,5 @@ exports.setupCSS = function(paths) {
    }
 
 }
+
+/* eslint-enable no-undef */

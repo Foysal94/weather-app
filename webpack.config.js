@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
@@ -31,9 +33,9 @@ const common = {
       preLoaders: [
          {
             test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'eslint-loader'
-         },
+            loaders: ['eslint'],
+            include: PATHS.app
+         }
       ],
       loaders: [
          {
@@ -93,3 +95,5 @@ switch(process.env.npm_lifecycle_event) {
 }
 
 module.exports = validate(config);
+
+/* eslint-enable no-undef */
