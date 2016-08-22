@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactRouter, {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import Main from '../components/Main';
 import Home from '../components/Home';
 import ForecastContainer from '../containers/ForecastContainer'
 
+/*
 import { stringify, parse } from 'qs'
 import { useRouterHistory } from 'react-router'
 import createBrowserHistory from 'history/lib/createBrowserHistory'
@@ -14,6 +15,7 @@ const stringifyQuery = function(query) {
 const history = useRouterHistory(createBrowserHistory) ({
   parseQueryString: parse, stringifyQuery
 })
+*/
 
 var routes = (
     <Router history={hashHistory}>
