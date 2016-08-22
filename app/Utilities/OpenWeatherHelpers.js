@@ -4,8 +4,7 @@ const apiKey = '2208d407ec5744e0b06648427dce293b'
 
 const OpenWeatherHelpers = {
 
-   getFiveDayForecast: function(location) {
-      var currentDate = new Date()
+   getFiveDayForecast: function(location) {)
 
       return axios.get(
           'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + location + '&type=accurate&APPID=' + apiKey + '&cnt=5'
