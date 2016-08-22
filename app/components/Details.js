@@ -2,19 +2,6 @@ import React, {PropTypes} from 'react'
 import Helpers from '../Utilities/Helpers'
 import styles from '../styles/components/Details.css'
 
-function puke(object) {
-  return <pre>{JSON.stringify(object,null, ' ')}</pre>
-  //<div>DATA: {puke(props)}</div>
-}
-
-function propsHTML(item) {
-  return (
-      <li>
-        <h2>{item}</h2>
-      </li>
-  )
-}
-
 function Details(props) {
   const weatherClass = Helpers.getWeatherIconClass(props.description)
   return (
