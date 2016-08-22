@@ -1,4 +1,9 @@
 {
+  "globals": {
+    "require": true,
+    "exports": true
+  },
+
   "plugins": [
     "react"
   ],
