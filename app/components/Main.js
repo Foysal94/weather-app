@@ -11,4 +11,9 @@ function Main(props) {
 
 }
 
+//ESLint react/prop-types  props validation rule
+Main.propTypes = {
+   children: React.PropTypes.object
+}
+
 export default Main

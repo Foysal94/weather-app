@@ -84,4 +84,11 @@ ForecastContainer.contextTypes = {
    router: React.PropTypes.object.isRequired
 }
 
+
+//ESLint react/prop-types  props validation rule
+ForecastContainer.propTypes = {
+   params: React.PropTypes.object,
+   location: React.PropTypes.object
+}
+
 export default ForecastContainer
