@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --cache",
+    "test:eslint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --cache",
+    "test:stylelint": "stylelint .css --ignore-path .gitignore --cache",
     "build": "webpack",
     "start": "webpack-dev-server --content-base ./build/"
   },
