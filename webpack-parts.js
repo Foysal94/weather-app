@@ -8,6 +8,7 @@ var autoprefixer = require('autoprefixer');
 var postcssSimpleVars = require("postcss-simple-vars")
 var postcssNested = require("postcss-nested")
 var postcssImport = require("postcss-import")
+var stylelint = require('stylelint')
 
 exports.devServer = function(options) {
    return {
@@ -127,6 +128,14 @@ exports.setupCSS = function(paths) {
 
    return {
       module: {
+         preLoaders: [
+            {
+               test: /\.css$/,
+               loaders: ['postcss'],
+               include: PATHS.app
+            },
+
+         ],
          loaders: [
             {
                test: /(scss|css)$/,
@@ -149,6 +158,7 @@ exports.setupCSS = function(paths) {
       postcss: function(paths, webpack)  {
 
          return [
+            stylelint,
             autoprefixer({
                browsers: ['last 2 versions']
             }),
