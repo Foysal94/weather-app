@@ -1,4 +1,4 @@
-$weatherIconColour: #FF0000;
+$weatherIconColour: #ff0;
 
 /* Site CSS */
 body {
@@ -6,7 +6,6 @@ body {
   padding-bottom: 20px;
 }
 
-/* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
   padding-left: 15px;
@@ -21,7 +20,6 @@ input, select {
 li {
   list-style-type: none;
 }
-
 
 i[class^="wi-"], i[class*=" wi-"] {
   font-size: 140px;

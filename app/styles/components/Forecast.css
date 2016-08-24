@@ -1,4 +1,3 @@
-
 .dayForecast {
   margin-top: 50px;
   margin-left: 120px;
@@ -14,20 +13,16 @@
     i {
       margin-left: 40px;
     }
-
   }
 }
-
 
 .locationHeader {
   margin-left: 41%;
   font-size: 80px;
 }
 
-
-
 .selectADayText {
   margin-left: 45%;
-  font-size:25px;
-  margin-top:30px;
+  font-size: 25px;
+  margin-top: 30px;
 }

@@ -130,9 +130,9 @@ exports.setupCSS = function(paths) {
       module: {
          preLoaders: [
             {
-               test: /\.css$/,
+               test: /(scss|css)$/,
                loaders: ['postcss'],
-               include: PATHS.app
+               include: paths
             },
 
          ],
